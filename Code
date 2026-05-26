@@ -1,0 +1,49 @@
+‎int x=11;
+‎int y=10;
+‎int z=9;
+‎int a=13;
+‎int b;
+‎int c=0;
+‎int d=HIGH;
+‎int e=8;
+‎
+‎void setup(){
+‎    pinMode(x,OUTPUT);
+‎    pinMode(y,OUTPUT);
+‎    pinMode(z,OUTPUT);
+‎    pinMode(a,INPUT_PULLUP);
+‎    pinMode(e, OUTPUT);
+‎}
+‎
+‎void loop(){
+‎    b=digitalRead(a);
+‎    
+‎    if (b==LOW && d==HIGH){
+‎        tone(e, 1000) ;
+‎        delay(50);
+‎        noTone(e);
+‎        c=c+1;
+‎        if(c>3) c=0;
+‎}
+‎    d=b;
+‎    if (c==0){
+‎        analogWrite(x,0);
+‎        analogWrite(y,255);
+‎        analogWrite(z,0);
+‎    }     
+‎    if(c==1){
+‎        analogWrite(x,255);
+‎        analogWrite(y,0);
+‎        analogWrite(z,0);
+‎    }  
+‎    if(c==2){
+‎        analogWrite(x,0);
+‎        analogWrite(y,100);
+‎        analogWrite(z,250);
+‎    }
+‎    if(c==3){
+‎        analogWrite(x,255);
+‎        analogWrite(y,80);
+‎        analogWrite(z,60);
+‎    }
+‎}
